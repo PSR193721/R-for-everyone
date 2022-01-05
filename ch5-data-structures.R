@@ -105,3 +105,31 @@ list(theDF, 1:10)
 
 # and a last example:
 list5 <- list(theDF, 1:10, list3)
+
+# create an empty list with 4 elements
+emptyList <- vector(mode = "list", length = 4)
+
+# you can set the value of a list element by referencing its index
+emptyList[3] = 14
+
+# and we can add a new element by addressing a list index that does not exist
+emptyList[5] = "R is the bomb"
+
+# this creates all of the elements up to the 9th. The new elements will be NULL except the 9th which gets the value 42.
+emptyList[9] <- 42 
+
+emptyList["My Element"] <- "Goat 543"
+emptyList["Mammy Doe Swoo"] <- 613
+
+# in general, it's best to initialize a list with a size and the fill. Repeated append operations are computationally
+# expensive, and so it should only be used sparingly.
+
+#######################
+###### MATRICES #######
+#######################
+
+# Matrices are much like data frames. They are two dimensional sets of values. All the data contained in a matrix
+# must be of the same type. The typical data type is numeric.
+
+
+
