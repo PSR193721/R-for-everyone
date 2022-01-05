@@ -1,3 +1,6 @@
+# clear the environment prior to running the script.
+rm(list=ls())
+
 #######################
 ##### DATA FRAMES #####
 #######################
