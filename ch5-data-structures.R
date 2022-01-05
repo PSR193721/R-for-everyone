@@ -1,3 +1,7 @@
+#######################
+##### DATA FRAMES #####
+#######################
+
 # Create some vectors. Note, a vector is a 1D data structure where all elements are of the same type
 x <- 1:10
 y <- -4:5
@@ -61,3 +65,43 @@ theDF[,2:3]
 
 # to get columns by name, use a character vector
 theDF[, c("First", "Sport")]
+
+# To get a column as a vector, access the column in the following ways:
+theDF[, "Sport"]
+class(theDF[,"Sport"])
+
+theDF[["Sport"]]
+class(theDF[["Sport"]])
+
+# This approach returns a data frame
+theDF["Sport"]
+class(theDF["Sport"])
+
+# this works too
+theDF[,"Sport", drop=FALSE]
+class(theDF[,"Sport", drop=FALSE])
+
+# or...
+theDF[, 3, drop=FALSE]
+class(theDF[, 3, drop=FALSE])
+
+#######################
+######## LISTS ########
+#######################
+
+# Lists are container class that allows you to store a collection of arbitrary of objects.
+
+# a list of 3 numerics
+list(1,2,3)
+
+# a list with a single vector
+list(c(1,2,3))
+
+# a list with two vectors
+list3 <- list(c(1,2,3), 3:7)
+
+# a list with a data frame and a vector
+list(theDF, 1:10)
+
+# and a last example:
+list5 <- list(theDF, 1:10, list3)
