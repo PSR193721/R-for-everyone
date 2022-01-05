@@ -131,5 +131,50 @@ emptyList["Mammy Doe Swoo"] <- 613
 # Matrices are much like data frames. They are two dimensional sets of values. All the data contained in a matrix
 # must be of the same type. The typical data type is numeric.
 
+# this creates a 5x2 matrix
+A <- matrix(1:10, nrow=5)
 
+A
+
+B <- matrix(21:30, nrow=5)
+
+B
+
+# and this a 2x10 matrix
+C <- matrix(21:40, nrow = 2)
+
+C
+
+# the dimension functions we used for data frames work for matrices as well.
+dim(A)
+
+nrow(B)
+
+ncol(A)
+
+# Matrices in R support all of the standard matrix arithmetic operations and impose the same restrictions
+A + B
+
+# element wise multiplication
+A * B
+
+# check for equivalence. This is done elementwise so we get back a logit matrix
+A == B
+
+# We can also do standard matrix multiplication. We can do this with A & B if we transpose B
+A %*% t(B)
+
+# we can use colnames and rownames with matrices too
+
+colnames(A)
+rownames(B)
+
+# and we can even assign column and row names just like we can with matrices.
+colnames(A) <- c("Left", "Right")
+rownames(A) <- c("1st", "2nd", "3rd", "4th", "5th")
+
+colnames(C) <- LETTERS[1:10]
+rownames(C) <- c("Top", "Bottom")
+
+View(C)
 
