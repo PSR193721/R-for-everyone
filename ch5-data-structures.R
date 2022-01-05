@@ -178,3 +178,13 @@ rownames(C) <- c("Top", "Bottom")
 
 View(C)
 
+#######################
+####### ARRAYS ########
+#######################
+
+# Arrays are a lot like matrices, but they can be higher dimensional objects. All of the elements must be of the same type.
+# The first argument is the data, the second argument defines the dimensions of the array. In this case we have a 2x3 array
+# as the element in a 3rd dimension. See the print out of the array.
+
+theArray <- array(1:12, dim=c(2,3,2))
+theArray
