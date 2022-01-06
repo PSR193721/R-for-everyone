@@ -153,3 +153,14 @@ ribalta %>%
 ### 6.8 Reading JSON Data ###
 #############################
 library(jsonlite)
+
+pizza <- fromJSON('https://www.jaredlander.com/data/PizzaFavorites.json')
+
+# pizza is a data frame
+class(pizza)
+
+# each object contained in the data frame is itself a data frame.
+class(pizza$Name)
+class(pizza$Details[[1]])
+
+      
