@@ -132,29 +132,95 @@ run.this(1:10, sd)
 ### Ch 9 Control Statements ###
 ###############################
 
+# R provides standard control flow mechanisms and they function much the way you would expect.
+
+x = 9
 
 #######################
 ### 9.1 if and else ###
 #######################
 
+if(x > 9) {
+  print('Bro')
+} else if (x != 9) {
+  print('Bruv')
+} else {
+  print('Rock on')
+}
 
 ##################
 ### 9.2 switch ###
 ##################
 
+# switch statements are a little funky in R:
 
+use.switch <- function(x) {
+  switch(x,
+         "a"="first",
+         "b"="second",
+         "z"="last",
+         "c"="third",
+         "other")
+}
+
+use.switch("a")
+
+# if we pass in a value that doesn't match any of the cases of the switch, then the default is returned.
+use.switch("j")
+
+# if we pass in a numeric value, then the switch cases are matched by position. If the position doesn't exist, the NULL is
+# returned.
+use.switch(1)
+use.switch(5)
+
+is.null(use.switch(6))
+
+# note that we can use the built in R function is.null to test a variable for "nullness".
 
 ##################
 ### 9.3 ifelse ###
 ##################
 
+# The ifelse construct in R works a lot like a ternary in other languages. One nice advantage that it has over the 
+# tradition if/else flow is that it is vectorized, making for efficient processing of vectors.
 
+# The first argument is the test, the second is the result if the test is true, and the third is returned if the test is
+# false.
+
+ifelse(1 == 1, "Yes", "No")
+
+toTest <- c(1,1,0,1,0,1)
+
+# here's an example of using ifelse on a vector.
+ifelse(toTest == 1, TRUE, FALSE)
+
+# we can also use the object itself in one or both or the result arguments.
+ifelse(toTest == 1, toTest*3, "Zero")
+
+# if the vector contains NA values, that will be returned
+toTest[2] <- NA
+
+ifelse(toTest == 1, "Yes", "No")
+
+a <- c(1,1,0,1)
+b <- c(2,1,0,1)
+
+# this comparison is done element wise and a logit vector will be returned containing the results of the test for each element.
+ifelse(a == 1 & b == 1, "yes", "no")
+
+# In this case, only the first elements are compared and only a single result will be returned.
+ifelse(a == 1 && b ==1, "yes", "no")
 
 ##########################
 ### 9.4 Compound Tests ###
 ##########################
 
+# we can also do compound test, note that in the case of doube & or double |, these AND/OR statements will
+# short circuit, making them efficient.
+if (x > 9 && x < 23) {
+  print('In the range!')
+}
 
-
-
+# Conditions can be grouped by parentheses and follow a set of rules akin to PEMDAS. AND is like multiplication and OR like
+# addition.
 
